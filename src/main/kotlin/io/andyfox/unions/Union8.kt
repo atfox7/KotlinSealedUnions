@@ -46,14 +46,14 @@ sealed class Union8<out First, out Second, out Third, out Fourth, out Fifth, out
 
   }
 
-  inline fun <R> join(crossinline mapFirst: (First) -> R,
-                      crossinline mapSecond: (Second) -> R,
-                      crossinline mapThird: (Third) -> R,
-                      crossinline mapFourth: (Fourth) -> R,
-                      crossinline mapFifth: (Fifth) -> R,
-                      crossinline mapSixth: (Sixth) -> R,
-                      crossinline mapSeventh: (Seventh) -> R,
-                      crossinline mapEighth: (Eighth) -> R): R =
+  inline fun <R> join(mapFirst: (First) -> R,
+                      mapSecond: (Second) -> R,
+                      mapThird: (Third) -> R,
+                      mapFourth: (Fourth) -> R,
+                      mapFifth: (Fifth) -> R,
+                      mapSixth: (Sixth) -> R,
+                      mapSeventh: (Seventh) -> R,
+                      mapEighth: (Eighth) -> R): R =
       when (this) {
         is Union8First -> mapFirst(value)
         is Union8Second -> mapSecond(value)
@@ -85,20 +85,20 @@ sealed class Union8<out First, out Second, out Third, out Fourth, out Fifth, out
     }
   }
 
-  data class Union8First<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh, out Eighth>(val value: First) : Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>()
+  data class Union8First<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh, out Eighth>(@PublishedApi internal val value: First) : Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>()
 
-  data class Union8Second<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh, out Eighth>(val value: Second) : Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>()
+  data class Union8Second<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh, out Eighth>(@PublishedApi internal val value: Second) : Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>()
 
-  data class Union8Third<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh, out Eighth>(val value: Third) : Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>()
+  data class Union8Third<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh, out Eighth>(@PublishedApi internal val value: Third) : Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>()
 
-  data class Union8Fourth<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh, out Eighth>(val value: Fourth) : Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>()
+  data class Union8Fourth<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh, out Eighth>(@PublishedApi internal val value: Fourth) : Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>()
 
-  data class Union8Fifth<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh, out Eighth>(val value: Fifth) : Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>()
+  data class Union8Fifth<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh, out Eighth>(@PublishedApi internal val value: Fifth) : Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>()
 
-  data class Union8Sixth<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh, out Eighth>(val value: Sixth) : Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>()
+  data class Union8Sixth<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh, out Eighth>(@PublishedApi internal val value: Sixth) : Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>()
 
-  data class Union8Seventh<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh, out Eighth>(val value: Seventh) : Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>()
+  data class Union8Seventh<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh, out Eighth>(@PublishedApi internal val value: Seventh) : Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>()
 
-  data class Union8Eighth<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh, out Eighth>(val value: Eighth) : Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>()
+  data class Union8Eighth<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh, out Eighth>(@PublishedApi internal val value: Eighth) : Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth>()
 
 }

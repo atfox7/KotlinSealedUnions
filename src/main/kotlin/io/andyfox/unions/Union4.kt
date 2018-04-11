@@ -34,10 +34,10 @@ sealed class Union4<out First, out Second, out Third, out Fourth> {
 
   }
 
-  inline fun <R> join(crossinline mapFirst: (First) -> R,
-                      crossinline mapSecond: (Second) -> R,
-                      crossinline mapThird: (Third) -> R,
-                      crossinline mapFourth: (Fourth) -> R): R =
+  inline fun <R> join(mapFirst: (First) -> R,
+                      mapSecond: (Second) -> R,
+                      mapThird: (Third) -> R,
+                      mapFourth: (Fourth) -> R): R =
       when (this) {
         is Union4First -> mapFirst(value)
         is Union4Second -> mapSecond(value)
@@ -57,11 +57,11 @@ sealed class Union4<out First, out Second, out Third, out Fourth> {
     }
   }
 
-  data class Union4First<out First, out Second, out Third, out Fourth>(val value: First) : Union4<First, Second, Third, Fourth>()
+  data class Union4First<out First, out Second, out Third, out Fourth>(@PublishedApi internal val value: First) : Union4<First, Second, Third, Fourth>()
 
-  data class Union4Second<out First, out Second, out Third, out Fourth>(val value: Second) : Union4<First, Second, Third, Fourth>()
+  data class Union4Second<out First, out Second, out Third, out Fourth>(@PublishedApi internal val value: Second) : Union4<First, Second, Third, Fourth>()
 
-  data class Union4Third<out First, out Second, out Third, out Fourth>(val value: Third) : Union4<First, Second, Third, Fourth>()
+  data class Union4Third<out First, out Second, out Third, out Fourth>(@PublishedApi internal val value: Third) : Union4<First, Second, Third, Fourth>()
 
-  data class Union4Fourth<out First, out Second, out Third, out Fourth>(val value: Fourth) : Union4<First, Second, Third, Fourth>()
+  data class Union4Fourth<out First, out Second, out Third, out Fourth>(@PublishedApi internal val value: Fourth) : Union4<First, Second, Third, Fourth>()
 }

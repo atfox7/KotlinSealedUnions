@@ -25,7 +25,7 @@ sealed class Union<out First> {
 
   }
 
-  inline fun <R> join(crossinline mapFirst: (First) -> R): R =
+  inline fun <R> join(mapFirst: (First) -> R): R =
       when (this) {
         is UnionFirst -> mapFirst(value)
       }
@@ -36,6 +36,6 @@ sealed class Union<out First> {
     }
   }
 
-  data class UnionFirst<out First>(val value: First) : Union<First>()
+  data class UnionFirst<out First>(@PublishedApi internal val value: First) : Union<First>()
 
 }

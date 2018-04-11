@@ -30,9 +30,9 @@ sealed class Union3<out First, out Second, out Third> {
     fun <First, Second, Third> third(value: Third): Union3<First, Second, Third> = Union3Third(value)
   }
 
-  inline fun <R> join(crossinline mapFirst: (First) -> R,
-                      crossinline mapSecond: (Second) -> R,
-                      crossinline mapThird: (Third) -> R): R =
+  inline fun <R> join(mapFirst: (First) -> R,
+                      mapSecond: (Second) -> R,
+                      mapThird: (Third) -> R): R =
       when (this) {
         is Union3First -> mapFirst(value)
         is Union3Second -> mapSecond(value)
@@ -49,9 +49,9 @@ sealed class Union3<out First, out Second, out Third> {
     }
   }
 
-  data class Union3First<out First, out Second, out Third>(val value: First) : Union3<First, Second, Third>()
+  data class Union3First<out First, out Second, out Third>(@PublishedApi internal val value: First) : Union3<First, Second, Third>()
 
-  data class Union3Second<out First, out Second, out Third>(val value: Second) : Union3<First, Second, Third>()
+  data class Union3Second<out First, out Second, out Third>(@PublishedApi internal val value: Second) : Union3<First, Second, Third>()
 
-  data class Union3Third<out First, out Second, out Third>(val value: Third) : Union3<First, Second, Third>()
+  data class Union3Third<out First, out Second, out Third>(@PublishedApi internal val value: Third) : Union3<First, Second, Third>()
 }
