@@ -18,13 +18,15 @@ package io.andyfox.unions
 
 sealed class Union2<out First, out Second> {
 
+
+
   companion object {
 
     @JvmStatic
-    fun <First, Second> first(value: First): Union2<First, Second> = Union2First(value)
+    fun <First> first(value: First): Union2<First, Nothing> = Union2First(value)
 
     @JvmStatic
-    fun <First, Second> second(value: Second): Union2<First, Second> = Union2Second(value)
+    fun <Second> second(value: Second): Union2<Nothing, Second> = Union2Second(value)
   }
 
   inline fun <R> join(mapFirst: (First) -> R, mapSecond: (Second) -> R): R =
@@ -40,8 +42,8 @@ sealed class Union2<out First, out Second> {
     }
   }
 
-  data class Union2First<out First, out Second>(@PublishedApi internal val value: First) : Union2<First, Second>()
+  data class Union2First<out First>(@PublishedApi internal val value: First) : Union2<First, Nothing>()
 
-  data class Union2Second<out First, out Second>(@PublishedApi internal val value: Second) : Union2<First, Second>()
+  data class Union2Second<out Second>(@PublishedApi internal val value: Second) : Union2<Nothing, Second>()
 
 }

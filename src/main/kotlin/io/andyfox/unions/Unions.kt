@@ -27,118 +27,118 @@ inline fun <First> union(value: First): Union<First> = Union.first(value)
  * Union2
  */
 
-inline fun <First, Second> union2First(value: First): Union2<First, Second> = Union2.first(value)
+inline fun <First> union2First(value: First): Union2<First, Nothing> = Union2.first(value)
 
-inline fun <First, Second> union2Second(value: Second): Union2<First, Second> = Union2.second(value)
+inline fun <Second> union2Second(value: Second): Union2<Nothing, Second> = Union2.second(value)
 
 /**
  * Union3
  */
 
-inline fun <First, Second, Third> union3First(value: First): Union3<First, Second, Third> = Union3.first(value)
+inline fun <First> union3First(value: First): Union3<First, Nothing, Nothing> = Union3.first(value)
 
-inline fun <First, Second, Third> union3Second(value: Second): Union3<First, Second, Third> = Union3.second(value)
+inline fun <Second> union3Second(value: Second): Union3<Nothing, Second, Nothing> = Union3.second(value)
 
-inline fun <First, Second, Third> union3Third(value: Third): Union3<First, Second, Third> = Union3.third(value)
+inline fun <Third> union3Third(value: Third): Union3<Nothing, Nothing, Third> = Union3.third(value)
 
 /**
  * Union4
  */
 
-inline fun <First, Second, Third, Fourth> union4First(value: First): Union4<First, Second, Third, Fourth> = Union4.first(value)
+inline fun <First> union4First(value: First): Union4<First, Nothing, Nothing, Nothing> = Union4.first(value)
 
-inline fun <First, Second, Third, Fourth> union4Second(value: Second): Union4<First, Second, Third, Fourth> = Union4.second(value)
+inline fun <Second> union4Second(value: Second): Union4<Nothing, Second, Nothing, Nothing> = Union4.second(value)
 
-inline fun <First, Second, Third, Fourth> union4Third(value: Third): Union4<First, Second, Third, Fourth> = Union4.third(value)
+inline fun <Third> union4Third(value: Third): Union4<Nothing, Nothing, Third, Nothing> = Union4.third(value)
 
-inline fun <First, Second, Third, Fourth> union4Fourth(value: Fourth): Union4<First, Second, Third, Fourth> = Union4.fourth(value)
+inline fun <Fourth> union4Fourth(value: Fourth): Union4<Nothing, Nothing, Nothing, Fourth> = Union4.fourth(value)
 
 /**
  * Union5
  */
 
-inline fun <First, Second, Third, Fourth, Fifth> union5First(value: First): Union5<First, Second, Third, Fourth, Fifth> = Union5.first(value)
+inline fun <First> union5First(value: First): Union5<First, Nothing, Nothing, Nothing, Nothing> = Union5.first(value)
 
-inline fun <First, Second, Third, Fourth, Fifth> union5Second(value: Second): Union5<First, Second, Third, Fourth, Fifth> = Union5.second(value)
+inline fun <Second> union5Second(value: Second): Union5<Nothing, Second, Nothing, Nothing, Nothing> = Union5.second(value)
 
-inline fun <First, Second, Third, Fourth, Fifth> union5Third(value: Third): Union5<First, Second, Third, Fourth, Fifth> = Union5.third(value)
+inline fun <Third> union5Third(value: Third): Union5<Nothing, Nothing, Third, Nothing, Nothing> = Union5.third(value)
 
-inline fun <First, Second, Third, Fourth, Fifth> union5Fourth(value: Fourth): Union5<First, Second, Third, Fourth, Fifth> = Union5.fourth(value)
+inline fun <Fourth> union5Fourth(value: Fourth): Union5<Nothing, Nothing, Nothing, Fourth, Nothing> = Union5.fourth(value)
 
-inline fun <First, Second, Third, Fourth, Fifth> union5Fifth(value: Fifth): Union5<First, Second, Third, Fourth, Fifth> = Union5.fifth(value)
+inline fun <Fifth> union5Fifth(value: Fifth): Union5<Nothing, Nothing, Nothing, Nothing, Fifth> = Union5.fifth(value)
 
 /**
  * Union6
  */
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth> union6First(value: First): Union6<First, Second, Third, Fourth, Fifth, Sixth> = Union6.first(value)
+inline fun <First> union6First(value: First): Union6<First, Nothing, Nothing, Nothing, Nothing, Nothing> = Union6.first(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth> union6Second(value: Second): Union6<First, Second, Third, Fourth, Fifth, Sixth> = Union6.second(value)
+inline fun <Second> union6Second(value: Second): Union6<Nothing, Second, Nothing, Nothing, Nothing, Nothing> = Union6.second(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth> union6Third(value: Third): Union6<First, Second, Third, Fourth, Fifth, Sixth> = Union6.third(value)
+inline fun <Third> union6Third(value: Third): Union6<Nothing, Nothing, Third, Nothing, Nothing, Nothing> = Union6.third(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth> union6Fourth(value: Fourth): Union6<First, Second, Third, Fourth, Fifth, Sixth> = Union6.fourth(value)
+inline fun <Fourth> union6Fourth(value: Fourth): Union6<Nothing, Nothing, Nothing, Fourth, Nothing, Nothing> = Union6.fourth(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth> union6Fifth(value: Fifth): Union6<First, Second, Third, Fourth, Fifth, Sixth> = Union6.fifth(value)
+inline fun <Fifth> union6Fifth(value: Fifth): Union6<Nothing, Nothing, Nothing, Nothing, Fifth, Nothing> = Union6.fifth(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth> union6Sixth(value: Sixth): Union6<First, Second, Third, Fourth, Fifth, Sixth> = Union6.sixth(value)
+inline fun <Sixth> union6Sixth(value: Sixth): Union6<Nothing, Nothing, Nothing, Nothing, Nothing, Sixth> = Union6.sixth(value)
 
 /**
  * Union7
  */
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> union7First(value: First): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7.first(value)
+inline fun <First> union7First(value: First): Union7<First, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing> = Union7.first(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> union7Second(value: Second): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7.second(value)
+inline fun <Second> union7Second(value: Second): Union7<Nothing, Second, Nothing, Nothing, Nothing, Nothing, Nothing> = Union7.second(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> union7Third(value: Third): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7.third(value)
+inline fun <Third> union7Third(value: Third): Union7<Nothing, Nothing, Third, Nothing, Nothing, Nothing, Nothing> = Union7.third(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> union7Fourth(value: Fourth): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7.fourth(value)
+inline fun <Fourth> union7Fourth(value: Fourth): Union7<Nothing, Nothing, Nothing, Fourth, Nothing, Nothing, Nothing> = Union7.fourth(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> union7Fifth(value: Fifth): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7.fifth(value)
+inline fun <Fifth> union7Fifth(value: Fifth): Union7<Nothing, Nothing, Nothing, Nothing, Fifth, Nothing, Nothing> = Union7.fifth(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> union7Sixth(value: Sixth): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7.sixth(value)
+inline fun <Sixth> union7Sixth(value: Sixth): Union7<Nothing, Nothing, Nothing, Nothing, Nothing, Sixth, Nothing> = Union7.sixth(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> union7Seventh(value: Seventh): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7.seventh(value)
+inline fun <Seventh> union7Seventh(value: Seventh): Union7<Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Seventh> = Union7.seventh(value)
 
 /**
  * Union8
  */
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth> union8First(value: First): Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth> = Union8.first(value)
+inline fun <First> union8First(value: First): Union8<First, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing> = Union8.first(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth> union8Second(value: Second): Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth> = Union8.second(value)
+inline fun <Second> union8Second(value: Second): Union8<Nothing, Second, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing> = Union8.second(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth> union8Third(value: Third): Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth> = Union8.third(value)
+inline fun <Third> union8Third(value: Third): Union8<Nothing, Nothing, Third, Nothing, Nothing, Nothing, Nothing, Nothing> = Union8.third(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth> union8Fourth(value: Fourth): Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth> = Union8.fourth(value)
+inline fun <Fourth> union8Fourth(value: Fourth): Union8<Nothing, Nothing, Nothing, Fourth, Nothing, Nothing, Nothing, Nothing> = Union8.fourth(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth> union8Fifth(value: Fifth): Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth> = Union8.fifth(value)
+inline fun <Fifth> union8Fifth(value: Fifth): Union8<Nothing, Nothing, Nothing, Nothing, Fifth, Nothing, Nothing, Nothing> = Union8.fifth(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth> union8Sixth(value: Sixth): Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth> = Union8.sixth(value)
+inline fun <Sixth> union8Sixth(value: Sixth): Union8<Nothing, Nothing, Nothing, Nothing, Nothing, Sixth, Nothing, Nothing> = Union8.sixth(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth> union8Seventh(value: Seventh): Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth> = Union8.seventh(value)
+inline fun <Seventh> union8Seventh(value: Seventh): Union8<Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Seventh, Nothing> = Union8.seventh(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth> union8Eighth(value: Eighth): Union8<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth> = Union8.eighth(value)
+inline fun <Eighth> union8Eighth(value: Eighth): Union8<Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Eighth> = Union8.eighth(value)
 
 /**
  * Union9
  */
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> union9First(value: First): Union9<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> = Union9.first(value)
+inline fun <First> union9First(value: First): Union9<First, Nothing, Nothing, Nothing, Nothing,Nothing, Nothing, Nothing, Nothing> = Union9.first(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> union9Second(value: Second): Union9<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> = Union9.second(value)
+inline fun <Second> union9Second(value: Second): Union9<Nothing, Second, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing> = Union9.second(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> union9Third(value: Third): Union9<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> = Union9.third(value)
+inline fun <Third> union9Third(value: Third): Union9<Nothing, Nothing, Third, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing> = Union9.third(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> union9Fourth(value: Fourth): Union9<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> = Union9.fourth(value)
+inline fun <Fourth> union9Fourth(value: Fourth): Union9<Nothing, Nothing, Nothing, Fourth, Nothing, Nothing, Nothing, Nothing, Nothing> = Union9.fourth(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> union9Fifth(value: Fifth): Union9<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> = Union9.fifth(value)
+inline fun <Fifth> union9Fifth(value: Fifth): Union9<Nothing, Nothing, Nothing, Nothing, Fifth, Nothing, Nothing, Nothing, Nothing> = Union9.fifth(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> union9Sixth(value: Sixth): Union9<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> = Union9.sixth(value)
+inline fun <Sixth> union9Sixth(value: Sixth): Union9<Nothing, Nothing, Nothing, Nothing, Nothing, Sixth, Nothing, Nothing, Nothing> = Union9.sixth(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> union9Seventh(value: Seventh): Union9<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> = Union9.seventh(value)
+inline fun <Seventh> union9Seventh(value: Seventh): Union9<Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Seventh, Nothing, Nothing> = Union9.seventh(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> union9Eighth(value: Eighth): Union9<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> = Union9.eighth(value)
+inline fun <Eighth> union9Eighth(value: Eighth): Union9<Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Eighth, Nothing> = Union9.eighth(value)
 
-inline fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> union9Ninth(value: Ninth): Union9<First, Second, Third, Fourth, Fifth, Sixth, Seventh, Eighth, Ninth> = Union9.ninth(value)
+inline fun <Ninth> union9Ninth(value: Ninth): Union9<Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Ninth> = Union9.ninth(value)

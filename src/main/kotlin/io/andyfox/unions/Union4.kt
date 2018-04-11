@@ -21,16 +21,16 @@ sealed class Union4<out First, out Second, out Third, out Fourth> {
   companion object {
 
     @JvmStatic
-    fun <First, Second, Third, Fourth> first(value: First): Union4<First, Second, Third, Fourth> = Union4First(value)
+    fun <First> first(value: First): Union4<First, Nothing, Nothing, Nothing> = Union4First(value)
 
     @JvmStatic
-    fun <First, Second, Third, Fourth> second(value: Second): Union4<First, Second, Third, Fourth> = Union4Second(value)
+    fun <Second> second(value: Second): Union4<Nothing, Second, Nothing, Nothing> = Union4Second(value)
 
     @JvmStatic
-    fun <First, Second, Third, Fourth> third(value: Third): Union4<First, Second, Third, Fourth> = Union4Third(value)
+    fun <Third> third(value: Third): Union4<Nothing, Nothing, Third, Nothing> = Union4Third(value)
 
     @JvmStatic
-    fun <First, Second, Third, Fourth> fourth(value: Fourth): Union4<First, Second, Third, Fourth> = Union4Fourth(value)
+    fun <Fourth> fourth(value: Fourth): Union4<Nothing, Nothing, Nothing, Fourth> = Union4Fourth(value)
 
   }
 
@@ -57,11 +57,11 @@ sealed class Union4<out First, out Second, out Third, out Fourth> {
     }
   }
 
-  data class Union4First<out First, out Second, out Third, out Fourth>(@PublishedApi internal val value: First) : Union4<First, Second, Third, Fourth>()
+  data class Union4First<out First>(@PublishedApi internal val value: First) : Union4<First, Nothing, Nothing, Nothing>()
 
-  data class Union4Second<out First, out Second, out Third, out Fourth>(@PublishedApi internal val value: Second) : Union4<First, Second, Third, Fourth>()
+  data class Union4Second<out Second>(@PublishedApi internal val value: Second) : Union4<Nothing, Second, Nothing, Nothing>()
 
-  data class Union4Third<out First, out Second, out Third, out Fourth>(@PublishedApi internal val value: Third) : Union4<First, Second, Third, Fourth>()
+  data class Union4Third<out Third>(@PublishedApi internal val value: Third) : Union4<Nothing, Nothing, Third, Nothing>()
 
-  data class Union4Fourth<out First, out Second, out Third, out Fourth>(@PublishedApi internal val value: Fourth) : Union4<First, Second, Third, Fourth>()
+  data class Union4Fourth<out Fourth>(@PublishedApi internal val value: Fourth) : Union4<Nothing, Nothing, Nothing, Fourth>()
 }

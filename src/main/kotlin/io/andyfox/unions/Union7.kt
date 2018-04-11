@@ -21,25 +21,25 @@ sealed class Union7<out First, out Second, out Third, out Fourth, out Fifth, out
   companion object {
 
     @JvmStatic
-    fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> first(value: First): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7First(value)
+    fun <First> first(value: First): Union7<First, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing> = Union7First(value)
 
     @JvmStatic
-    fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> second(value: Second): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7Second(value)
+    fun <Second> second(value: Second): Union7<Nothing, Second, Nothing, Nothing, Nothing, Nothing, Nothing> = Union7Second(value)
 
     @JvmStatic
-    fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> third(value: Third): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7Third(value)
+    fun <Third> third(value: Third): Union7<Nothing, Nothing, Third, Nothing, Nothing, Nothing, Nothing> = Union7Third(value)
 
     @JvmStatic
-    fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> fourth(value: Fourth): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7Fourth(value)
+    fun <Fourth> fourth(value: Fourth): Union7<Nothing, Nothing, Nothing, Fourth, Nothing, Nothing, Nothing> = Union7Fourth(value)
 
     @JvmStatic
-    fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> fifth(value: Fifth): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7Fifth(value)
+    fun <Fifth> fifth(value: Fifth): Union7<Nothing, Nothing, Nothing, Nothing, Fifth, Nothing, Nothing> = Union7Fifth(value)
 
     @JvmStatic
-    fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> sixth(value: Sixth): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7Sixth(value)
+    fun <Sixth> sixth(value: Sixth): Union7<Nothing, Nothing, Nothing, Nothing, Nothing, Sixth, Nothing> = Union7Sixth(value)
 
     @JvmStatic
-    fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> seventh(value: Seventh): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7Seventh(value)
+    fun <Seventh> seventh(value: Seventh): Union7<Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Seventh> = Union7Seventh(value)
 
   }
 
@@ -78,18 +78,18 @@ sealed class Union7<out First, out Second, out Third, out Fourth, out Fifth, out
     }
   }
 
-  data class Union7First<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh>(@PublishedApi internal val value: First) : Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh>()
+  data class Union7First<out First>(@PublishedApi internal val value: First) : Union7<First, Nothing, Nothing, Nothing, Nothing, Nothing, Nothing>()
 
-  data class Union7Second<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh>(@PublishedApi internal val value: Second) : Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh>()
+  data class Union7Second<out Second>(@PublishedApi internal val value: Second) : Union7<Nothing, Second, Nothing, Nothing, Nothing, Nothing, Nothing>()
 
-  data class Union7Third<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh>(@PublishedApi internal val value: Third) : Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh>()
+  data class Union7Third<out Third>(@PublishedApi internal val value: Third) : Union7<Nothing, Nothing, Third, Nothing, Nothing, Nothing, Nothing>()
 
-  data class Union7Fourth<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh>(@PublishedApi internal val value: Fourth) : Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh>()
+  data class Union7Fourth<out Fourth>(@PublishedApi internal val value: Fourth) : Union7<Nothing, Nothing, Nothing, Fourth, Nothing, Nothing, Nothing>()
 
-  data class Union7Fifth<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh>(@PublishedApi internal val value: Fifth) : Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh>()
+  data class Union7Fifth<out Fifth>(@PublishedApi internal val value: Fifth) : Union7<Nothing, Nothing, Nothing, Nothing, Fifth, Nothing, Nothing>()
 
-  data class Union7Sixth<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh>(@PublishedApi internal val value: Sixth) : Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh>()
+  data class Union7Sixth< out Sixth>(@PublishedApi internal val value: Sixth) : Union7<Nothing, Nothing, Nothing, Nothing, Nothing, Sixth, Nothing>()
 
-  data class Union7Seventh<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh>(@PublishedApi internal val value: Seventh) : Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh>()
+  data class Union7Seventh<out Seventh>(@PublishedApi internal val value: Seventh) : Union7<Nothing, Nothing, Nothing, Nothing, Nothing, Nothing, Seventh>()
 
 }

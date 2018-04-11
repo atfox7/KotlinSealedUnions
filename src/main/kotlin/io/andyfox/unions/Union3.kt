@@ -21,13 +21,13 @@ sealed class Union3<out First, out Second, out Third> {
   companion object {
 
     @JvmStatic
-    fun <First, Second, Third> first(value: First): Union3<First, Second, Third> = Union3First(value)
+    fun <First> first(value: First): Union3<First, Nothing, Nothing> = Union3First(value)
 
     @JvmStatic
-    fun <First, Second, Third> second(value: Second): Union3<First, Second, Third> = Union3Second(value)
+    fun <Second> second(value: Second): Union3<Nothing, Second, Nothing> = Union3Second(value)
 
     @JvmStatic
-    fun <First, Second, Third> third(value: Third): Union3<First, Second, Third> = Union3Third(value)
+    fun <Third> third(value: Third): Union3<Nothing, Nothing, Third> = Union3Third(value)
   }
 
   inline fun <R> join(mapFirst: (First) -> R,
@@ -49,9 +49,9 @@ sealed class Union3<out First, out Second, out Third> {
     }
   }
 
-  data class Union3First<out First, out Second, out Third>(@PublishedApi internal val value: First) : Union3<First, Second, Third>()
+  data class Union3First<out First>(@PublishedApi internal val value: First) : Union3<First, Nothing, Nothing>()
 
-  data class Union3Second<out First, out Second, out Third>(@PublishedApi internal val value: Second) : Union3<First, Second, Third>()
+  data class Union3Second<out Second>(@PublishedApi internal val value: Second) : Union3<Nothing, Second, Nothing>()
 
-  data class Union3Third<out First, out Second, out Third>(@PublishedApi internal val value: Third) : Union3<First, Second, Third>()
+  data class Union3Third<out Third>(@PublishedApi internal val value: Third) : Union3<Nothing, Nothing, Third>()
 }

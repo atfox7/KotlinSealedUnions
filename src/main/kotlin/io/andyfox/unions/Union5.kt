@@ -21,19 +21,19 @@ sealed class Union5<out First, out Second, out Third, out Fourth, out Fifth> {
   companion object {
 
     @JvmStatic
-    fun <First, Second, Third, Fourth, Fifth> first(value: First): Union5<First, Second, Third, Fourth, Fifth> = Union5First(value)
+    fun <First> first(value: First): Union5<First, Nothing, Nothing, Nothing, Nothing> = Union5First(value)
 
     @JvmStatic
-    fun <First, Second, Third, Fourth, Fifth> second(value: Second): Union5<First, Second, Third, Fourth, Fifth> = Union5Second(value)
+    fun <Second> second(value: Second): Union5<Nothing, Second, Nothing, Nothing, Nothing> = Union5Second(value)
 
     @JvmStatic
-    fun <First, Second, Third, Fourth, Fifth> third(value: Third): Union5<First, Second, Third, Fourth, Fifth> = Union5Third(value)
+    fun <Third> third(value: Third): Union5<Nothing, Nothing, Third, Nothing, Nothing> = Union5Third(value)
 
     @JvmStatic
-    fun <First, Second, Third, Fourth, Fifth> fourth(value: Fourth): Union5<First, Second, Third, Fourth, Fifth> = Union5Fourth(value)
+    fun <Fourth> fourth(value: Fourth): Union5<Nothing, Nothing, Nothing, Fourth, Nothing> = Union5Fourth(value)
 
     @JvmStatic
-    fun <First, Second, Third, Fourth, Fifth> fifth(value: Fifth): Union5<First, Second, Third, Fourth, Fifth> = Union5Fifth(value)
+    fun <Fifth> fifth(value: Fifth): Union5<Nothing, Nothing, Nothing, Nothing, Fifth> = Union5Fifth(value)
   }
 
   inline fun <R> join(mapFirst: (First) -> R,
@@ -63,14 +63,14 @@ sealed class Union5<out First, out Second, out Third, out Fourth, out Fifth> {
     }
   }
 
-  data class Union5First<out First, out Second, out Third, out Fourth, out Fifth>(@PublishedApi internal val value: First) : Union5<First, Second, Third, Fourth, Fifth>()
+  data class Union5First<out First>(@PublishedApi internal val value: First) : Union5<First, Nothing, Nothing, Nothing, Nothing>()
 
-  data class Union5Second<out First, out Second, out Third, out Fourth, out Fifth>(@PublishedApi internal val value: Second) : Union5<First, Second, Third, Fourth, Fifth>()
+  data class Union5Second<out Second>(@PublishedApi internal val value: Second) : Union5<Nothing, Second, Nothing, Nothing, Nothing>()
 
-  data class Union5Third<out First, out Second, out Third, out Fourth, out Fifth>(@PublishedApi internal val value: Third) : Union5<First, Second, Third, Fourth, Fifth>()
+  data class Union5Third<out Third>(@PublishedApi internal val value: Third) : Union5<Nothing, Nothing, Third, Nothing, Nothing>()
 
-  data class Union5Fourth<out First, out Second, out Third, out Fourth, out Fifth>(@PublishedApi internal val value: Fourth) : Union5<First, Second, Third, Fourth, Fifth>()
+  data class Union5Fourth<out Fourth>(@PublishedApi internal val value: Fourth) : Union5<Nothing, Nothing, Nothing, Fourth, Nothing>()
 
-  data class Union5Fifth<out First, out Second, out Third, out Fourth, out Fifth>(@PublishedApi internal val value: Fifth) : Union5<First, Second, Third, Fourth, Fifth>()
+  data class Union5Fifth<out Fifth>(@PublishedApi internal val value: Fifth) : Union5<Nothing, Nothing, Nothing, Nothing, Fifth>()
 
 }
