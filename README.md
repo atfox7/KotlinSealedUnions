@@ -1,8 +1,8 @@
-# KotlinSealedUnions
-Port of RxSealedUnions implemented in Kotlin
+# KotlinUnions
+Port of RxUnions implemented in Kotlin
 
-# KotlinSealedUnions
-This repository is a port of RxSealedUnions2 [RxSealedUnions2](https://github.com/pakoito/RxSealedUnions2).
+# KotlinUnions
+This repository is a port of RxUnions2 [RxUnions2](https://github.com/pakoito/RxUnions2).
 
 ## DISTRIBUTION
 Add as a dependency to your `build.gradle`
@@ -16,7 +16,7 @@ Add as a dependency to your `build.gradle`
 
     dependencies {
         ...
-        compile 'com.github.atfox7:KotlinSealedUnions:0.1.0'
+        compile 'com.github.atfox7:KotlinUnions:0.1.0'
         ...
     }
 ```
@@ -33,10 +33,10 @@ or to your `pom.xml`
 
     <dependency>
         <groupId>com.github.atfox7</groupId>
-        <artifactId>KotlinSealedUnions</artifactId>
+        <artifactId>KotlinUnions</artifactId>
         <version>1.1.0</version>
     </dependency>
 ```
 
 ## ACKNOWLEDGEMENTS
-Heavily based off ideas in [RxSealedUnions2](https://github.com/pakoito/RxSealedUnions2)
+Heavily based off ideas in [RxUnions2](https://github.com/pakoito/RxUnions2)

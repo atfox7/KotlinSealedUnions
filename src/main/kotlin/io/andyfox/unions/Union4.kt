@@ -16,16 +16,52 @@
 
 package io.andyfox.unions
 
-interface Union4<out First, out Second, out Third, out Fourth> {
+sealed class Union4<out First, out Second, out Third, out Fourth> {
 
-  fun <R> join(mapFirst: (First) -> R,
-               mapSecond: (Second) -> R,
-               mapThird: (Third) -> R,
-               mapFourth: (Fourth) -> R): R
+  companion object {
 
-  fun continued(continuationFirst: (First) -> Unit,
-                continuationSecond: (Second) -> Unit,
-                continuationThird: (Third) -> Unit,
-                continuationFourth: (Fourth) -> Unit)
+    @JvmStatic
+    fun <First, Second, Third, Fourth> first(value: First): Union4<First, Second, Third, Fourth> = Union4First(value)
 
+    @JvmStatic
+    fun <First, Second, Third, Fourth> second(value: Second): Union4<First, Second, Third, Fourth> = Union4Second(value)
+
+    @JvmStatic
+    fun <First, Second, Third, Fourth> third(value: Third): Union4<First, Second, Third, Fourth> = Union4Third(value)
+
+    @JvmStatic
+    fun <First, Second, Third, Fourth> fourth(value: Fourth): Union4<First, Second, Third, Fourth> = Union4Fourth(value)
+
+  }
+
+  inline fun <R> join(crossinline mapFirst: (First) -> R,
+                      crossinline mapSecond: (Second) -> R,
+                      crossinline mapThird: (Third) -> R,
+                      crossinline mapFourth: (Fourth) -> R): R =
+      when (this) {
+        is Union4First -> mapFirst(value)
+        is Union4Second -> mapSecond(value)
+        is Union4Third -> mapThird(value)
+        is Union4Fourth -> mapFourth(value)
+      }
+
+  inline fun continued(continuationFirst: (First) -> Unit,
+                       continuationSecond: (Second) -> Unit,
+                       continuationThird: (Third) -> Unit,
+                       continuationFourth: (Fourth) -> Unit) {
+    when (this) {
+      is Union4First -> continuationFirst(value)
+      is Union4Second -> continuationSecond(value)
+      is Union4Third -> continuationThird(value)
+      is Union4Fourth -> continuationFourth(value)
+    }
+  }
+
+  data class Union4First<out First, out Second, out Third, out Fourth>(val value: First) : Union4<First, Second, Third, Fourth>()
+
+  data class Union4Second<out First, out Second, out Third, out Fourth>(val value: Second) : Union4<First, Second, Third, Fourth>()
+
+  data class Union4Third<out First, out Second, out Third, out Fourth>(val value: Third) : Union4<First, Second, Third, Fourth>()
+
+  data class Union4Fourth<out First, out Second, out Third, out Fourth>(val value: Fourth) : Union4<First, Second, Third, Fourth>()
 }

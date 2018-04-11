@@ -16,10 +16,26 @@
 
 package io.andyfox.unions
 
-interface Union<out First> {
+sealed class Union<out First> {
 
-  fun <R> join(mapFirst: (First) -> R): R
+  companion object {
 
-  fun continued(continuationFirst: (First) -> Unit)
+    @JvmStatic
+    fun <First> first(value: First): Union<First> = UnionFirst(value)
+
+  }
+
+  inline fun <R> join(crossinline mapFirst: (First) -> R): R =
+      when (this) {
+        is UnionFirst -> mapFirst(value)
+      }
+
+  inline fun continued(continuationFirst: (First) -> Unit) {
+    when (this) {
+      is UnionFirst -> continuationFirst(value)
+    }
+  }
+
+  data class UnionFirst<out First>(val value: First) : Union<First>()
 
 }

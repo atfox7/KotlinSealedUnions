@@ -16,10 +16,32 @@
 
 package io.andyfox.unions
 
-interface Union2<out First, out Second> {
+sealed class Union2<out First, out Second> {
 
-  fun <R> join(mapFirst: (First) -> R, mapSecond: (Second) -> R): R
+  companion object {
 
-  fun continued(continuationFirst: (First) -> Unit, continuationSecond: (Second) -> Unit)
+    @JvmStatic
+    fun <First, Second> first(value: First): Union2<First, Second> = Union2First(value)
+
+    @JvmStatic
+    fun <First, Second> second(value: Second): Union2<First, Second> = Union2Second(value)
+  }
+
+  inline fun <R> join(crossinline mapFirst: (First) -> R, crossinline mapSecond: (Second) -> R): R =
+      when (this) {
+        is Union2First -> mapFirst(value)
+        is Union2Second -> mapSecond(value)
+      }
+
+  inline fun continued(continuationFirst: (First) -> Unit, continuationSecond: (Second) -> Unit) {
+    when (this) {
+      is Union2First -> continuationFirst(value)
+      is Union2Second -> continuationSecond(value)
+    }
+  }
+
+  data class Union2First<out First, out Second>(val value: First) : Union2<First, Second>()
+
+  data class Union2Second<out First, out Second>(val value: Second) : Union2<First, Second>()
 
 }

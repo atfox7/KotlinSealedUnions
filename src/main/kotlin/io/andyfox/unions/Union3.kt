@@ -16,14 +16,42 @@
 
 package io.andyfox.unions
 
-interface Union3<out First, out Second, out Third> {
+sealed class Union3<out First, out Second, out Third> {
 
-  fun <R> join(mapFirst: (First) -> R,
-               mapSecond: (Second) -> R,
-               mapThird: (Third) -> R): R
+  companion object {
 
-  fun continued(continuationFirst: (First) -> Unit,
-                continuationSecond: (Second) -> Unit,
-                continuationThird: (Third) -> Unit)
+    @JvmStatic
+    fun <First, Second, Third> first(value: First): Union3<First, Second, Third> = Union3First(value)
 
+    @JvmStatic
+    fun <First, Second, Third> second(value: Second): Union3<First, Second, Third> = Union3Second(value)
+
+    @JvmStatic
+    fun <First, Second, Third> third(value: Third): Union3<First, Second, Third> = Union3Third(value)
+  }
+
+  inline fun <R> join(crossinline mapFirst: (First) -> R,
+                      crossinline mapSecond: (Second) -> R,
+                      crossinline mapThird: (Third) -> R): R =
+      when (this) {
+        is Union3First -> mapFirst(value)
+        is Union3Second -> mapSecond(value)
+        is Union3Third -> mapThird(value)
+      }
+
+  inline fun continued(continuationFirst: (First) -> Unit,
+                       continuationSecond: (Second) -> Unit,
+                       continuationThird: (Third) -> Unit) {
+    when (this) {
+      is Union3First -> continuationFirst(value)
+      is Union3Second -> continuationSecond(value)
+      is Union3Third -> continuationThird(value)
+    }
+  }
+
+  data class Union3First<out First, out Second, out Third>(val value: First) : Union3<First, Second, Third>()
+
+  data class Union3Second<out First, out Second, out Third>(val value: Second) : Union3<First, Second, Third>()
+
+  data class Union3Third<out First, out Second, out Third>(val value: Third) : Union3<First, Second, Third>()
 }

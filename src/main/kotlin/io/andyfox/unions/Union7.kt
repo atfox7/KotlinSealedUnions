@@ -16,22 +16,80 @@
 
 package io.andyfox.unions
 
-interface Union7<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh> {
+sealed class Union7<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh> {
 
-  fun <R> join(mapFirst: (First) -> R,
-               mapSecond: (Second) -> R,
-               mapThird: (Third) -> R,
-               mapFourth: (Fourth) -> R,
-               mapFifth: (Fifth) -> R,
-               mapSixth: (Sixth) -> R,
-               mapSeventh: (Seventh) -> R): R
+  companion object {
 
-  fun continued(continuationFirst: (First) -> Unit,
-                continuationSecond: (Second) -> Unit,
-                continuationThird: (Third) -> Unit,
-                continuationFourth: (Fourth) -> Unit,
-                continuationFifth: (Fifth) -> Unit,
-                continuationSixth: (Sixth) -> Unit,
-                continuationSeventh: (Seventh) -> Unit)
+    @JvmStatic
+    fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> first(value: First): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7First(value)
+
+    @JvmStatic
+    fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> second(value: Second): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7Second(value)
+
+    @JvmStatic
+    fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> third(value: Third): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7Third(value)
+
+    @JvmStatic
+    fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> fourth(value: Fourth): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7Fourth(value)
+
+    @JvmStatic
+    fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> fifth(value: Fifth): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7Fifth(value)
+
+    @JvmStatic
+    fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> sixth(value: Sixth): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7Sixth(value)
+
+    @JvmStatic
+    fun <First, Second, Third, Fourth, Fifth, Sixth, Seventh> seventh(value: Seventh): Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh> = Union7Seventh(value)
+
+  }
+
+  inline fun <R> join(crossinline mapFirst: (First) -> R,
+                      crossinline mapSecond: (Second) -> R,
+                      crossinline mapThird: (Third) -> R,
+                      crossinline mapFourth: (Fourth) -> R,
+                      crossinline mapFifth: (Fifth) -> R,
+                      crossinline mapSixth: (Sixth) -> R,
+                      crossinline mapSeventh: (Seventh) -> R): R =
+      when (this) {
+        is Union7First -> mapFirst(value)
+        is Union7Second -> mapSecond(value)
+        is Union7Third -> mapThird(value)
+        is Union7Fourth -> mapFourth(value)
+        is Union7Fifth -> mapFifth(value)
+        is Union7Sixth -> mapSixth(value)
+        is Union7Seventh -> mapSeventh(value)
+      }
+
+  inline fun continued(continuationFirst: (First) -> Unit,
+                       continuationSecond: (Second) -> Unit,
+                       continuationThird: (Third) -> Unit,
+                       continuationFourth: (Fourth) -> Unit,
+                       continuationFifth: (Fifth) -> Unit,
+                       continuationSixth: (Sixth) -> Unit,
+                       continuationSeventh: (Seventh) -> Unit) {
+    when (this) {
+      is Union7First -> continuationFirst(value)
+      is Union7Second -> continuationSecond(value)
+      is Union7Third -> continuationThird(value)
+      is Union7Fourth -> continuationFourth(value)
+      is Union7Fifth -> continuationFifth(value)
+      is Union7Sixth -> continuationSixth(value)
+      is Union7Seventh -> continuationSeventh(value)
+    }
+  }
+
+  data class Union7First<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh>(val value: First) : Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh>()
+
+  data class Union7Second<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh>(val value: Second) : Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh>()
+
+  data class Union7Third<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh>(val value: Third) : Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh>()
+
+  data class Union7Fourth<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh>(val value: Fourth) : Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh>()
+
+  data class Union7Fifth<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh>(val value: Fifth) : Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh>()
+
+  data class Union7Sixth<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh>(val value: Sixth) : Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh>()
+
+  data class Union7Seventh<out First, out Second, out Third, out Fourth, out Fifth, out Sixth, out Seventh>(val value: Seventh) : Union7<First, Second, Third, Fourth, Fifth, Sixth, Seventh>()
 
 }
